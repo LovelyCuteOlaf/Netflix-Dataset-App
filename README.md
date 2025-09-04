@@ -81,6 +81,21 @@ docker exec -it laravel_app php artisan import:dataset --users=/var/www/html/dat
 ```
 Access the API at `http://localhost:8080/api/...`
 
+### Example API calls
+```bash
+# Movies list (filter + pagination)
+curl "http://127.0.0.1:8000/api/movies?genre=Sci-Fi&release_year=2017&per_page=5"
+
+# Single movie
+curl "http://127.0.0.1:8000/api/movies/movie_0010"
+
+# Users list (filter + pagination)
+curl "http://127.0.0.1:8000/api/users?country=USA&subscription_plan=Premium&per_page=5"
+
+# Reviews list (filter + pagination)
+curl "http://127.0.0.1:8000/api/reviews?movie_id=movie_0010&rating=5&per_page=5"
+```
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
