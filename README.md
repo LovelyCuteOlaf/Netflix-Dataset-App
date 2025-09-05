@@ -73,10 +73,9 @@ Start MySQL and the Laravel app via Docker:
 ```bash
 docker compose up -d --build
 ```
-Run migrations inside the app container and import data:
+Migrations run automatically on container start. Generate the app key (once) and import data:
 ```bash
 docker exec -it laravel_app php artisan key:generate
-docker exec -it laravel_app php artisan migrate
 docker exec -it laravel_app php artisan import:dataset --users=/var/www/html/datasets/users.csv --movies=/var/www/html/datasets/movies.csv --reviews=/var/www/html/datasets/reviews.csv
 ```
 Access the API at `http://localhost:8080/api/...`
